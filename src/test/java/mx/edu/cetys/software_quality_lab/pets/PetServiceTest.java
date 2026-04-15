@@ -1,16 +1,20 @@
 package mx.edu.cetys.software_quality_lab.pets;
 
+import mx.edu.cetys.software_quality_lab.pets.exceptions.InvalidPetDataException;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
+import org.mockito.junit.jupiter.MockitoExtension;
 import org.springframework.stereotype.Service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.Mockito.*;
 
-@Service
+@ExtendWith(MockitoExtension.class)
 public class PetServiceTest {
 
     @Mock
@@ -51,6 +55,16 @@ public class PetServiceTest {
         // - Nombre mas de 2 letras
         // - Salvar a la BD, y la base datos nos regresa el mismo pet pero con ID
 
+    }
+
+    @Test
+    void savePet_IvalidName_ExceptionExpected() {
+
+        // Arrange
+        var petRequest = new PetController.PetRequest("L","Negro","Perro",5);
+
+        // Assert
+        assertThrows(InvalidPetDataException.class, () -> petService.savePet(petRequest));
     }
 
     @Test

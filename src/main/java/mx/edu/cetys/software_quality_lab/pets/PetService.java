@@ -1,5 +1,6 @@
 package mx.edu.cetys.software_quality_lab.pets;
 
+import mx.edu.cetys.software_quality_lab.pets.exceptions.InvalidPetDataException;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,6 +23,12 @@ public class PetService {
 
         // TODO validation
         // Name length > 2 char
+
+        if (requestPet.name().isEmpty()
+            || requestPet.name().isBlank()
+            || requestPet.name().length() < 2) {
+            throw new InvalidPetDataException("Pet Name is Invalid");
+        }
         // Age > 0
         // Color is not empty (extra validation)
 
