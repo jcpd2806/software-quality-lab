@@ -1,30 +1,33 @@
 package mx.edu.cetys.software_quality_lab.pets;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 
 @Entity
-@Table
 public class Pet {
 
+    // classic POJO
     @Id
     @GeneratedValue()
     private Long id;
 
     private String name;
+
     private String race;
+
     private String color;
+
     private Integer age;
 
-    public Pet(){}
 
+    public Pet(){
+
+    }
     public Pet(String name, String race, String color, Integer age) {
         this.name = name;
         this.race = race;
         this.color = color;
         this.age = age;
+
     }
 
     public Long getId() {

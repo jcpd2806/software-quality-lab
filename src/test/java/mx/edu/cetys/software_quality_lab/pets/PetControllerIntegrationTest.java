@@ -35,35 +35,27 @@ public class PetControllerIntegrationTest {
     // @Named
     @Test
     void shouldCreatePetAndReturn201() throws Exception {
-        String requestBody =
-                """
-                {
-                    "name": "pop",
-                    "color": "chihuahua",
-                    "race": "azul",
-                    "age": 17
-                }
-                """;
+        String requestBody = """
+                        {
+                            "name": "pop",
+                            "race": "dalmate",
+                            "color": "blanco y negro",
+                            "age": 1
+                        }""";
 
         mockMvc.perform(
-                post("/pet")
-                .contentType(MediaType.APPLICATION_JSON)
-                .content(requestBody)
-        )
-        // Assert Mode: ON
-        .andExpect(status().isCreated()) // Validar Status 201
-        .andExpect(jsonPath("$.info")
-                .value("New Pet was added"))
-        .andExpect(jsonPath("$.response.name")
-                .value("pop"));
-//        .andExpect(jsonPath("$.response.race")
-//                .value("chihuahua"))
-//        .andExpect(jsonPath("$.response.color")
-//                .value("azul"))
-//        .andExpect(jsonPath("$.response.age")
-//                .value(17));
+                        //request setup
+                        post("/pets")
+                                .contentType(MediaType.APPLICATION_JSON)
+                                .content(requestBody)
+                )
+                // assertmode on
+                .andExpect(status().isCreated()) //validar status 201
+                .andExpect(jsonPath("$.info").value("New pet was added"))
+                .andExpect(jsonPath("$.response.pet.color").value("blanco y negro"))
+                .andExpect(jsonPath("$.response.pet.race").value("dalmate"))
+                .andExpect(jsonPath("$.response.pet.name").value("pop"))
+        ;
+
     }
-
-
-
 }

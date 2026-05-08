@@ -1,5 +1,6 @@
 plugins {
 	java
+	jacoco
 	id("org.springframework.boot") version "3.5.10"
 	id("io.spring.dependency-management") version "1.1.7"
 }
@@ -11,6 +12,19 @@ description = "Proyecto laboratorio de pruebas"
 java {
 	toolchain {
 		languageVersion = JavaLanguageVersion.of(25)
+	}
+}
+
+tasks.withType<Test> {
+	useJUnitPlatform()
+	finalizedBy(tasks.jacocoTestReport)
+}
+
+tasks.jacocoTestReport {
+	dependsOn(tasks.test)
+	reports {
+		xml.required = true
+		html.required = true
 	}
 }
 

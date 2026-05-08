@@ -47,7 +47,7 @@ public class PetServiceTest {
 
         assertEquals(1L , pet.id());
         assertEquals("Lu", pet.name());
-        assertEquals("Perro", pet.race());
+        assertEquals("Negro", pet.race());
 
         // Recibir la peticion desde el controller (Pet)
         // Verificar los valores del pet:

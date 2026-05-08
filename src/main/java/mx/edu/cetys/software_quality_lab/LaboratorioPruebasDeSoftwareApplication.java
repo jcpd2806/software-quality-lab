@@ -9,7 +9,6 @@ public class LaboratorioPruebasDeSoftwareApplication {
 	public static void main(String[] args) {
 		SpringApplication.run(LaboratorioPruebasDeSoftwareApplication.class, args);
 
-        System.out.println("hola");
 	}
 
 }
