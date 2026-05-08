@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 @Entity
 public class Pet {
 
+    // Dummy text para push a git
+
     // classic POJO
     @Id
     @GeneratedValue()
