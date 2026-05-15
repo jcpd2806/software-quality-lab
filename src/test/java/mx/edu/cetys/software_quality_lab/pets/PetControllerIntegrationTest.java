@@ -9,7 +9,8 @@ import org.springframework.http.MediaType;
 import org.springframework.test.web.servlet.MockMvc;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.jsonPath;
+import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 
 @SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
@@ -52,9 +53,10 @@ public class PetControllerIntegrationTest {
                 // assertmode on
                 .andExpect(status().isCreated()) //validar status 201
                 .andExpect(jsonPath("$.info").value("New pet was added"))
-                .andExpect(jsonPath("$.response.pet.color").value("blanco y negro"))
                 .andExpect(jsonPath("$.response.pet.race").value("dalmate"))
+                .andExpect(jsonPath("$.response.pet.color").value("blanco y negro"))
                 .andExpect(jsonPath("$.response.pet.name").value("pop"))
+                .andExpect(jsonPath("$.response.pet.age").value(1))
         ;
 
     }

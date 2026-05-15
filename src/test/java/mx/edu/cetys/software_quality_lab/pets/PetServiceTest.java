@@ -7,7 +7,6 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
-import org.springframework.stereotype.Service;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
@@ -58,7 +57,7 @@ public class PetServiceTest {
     }
 
     @Test
-    void savePet_IvalidName_ExceptionExpected() {
+    void savePetIvalidNameExceptionExpected() {
 
         // Arrange
         var petRequest = new PetController.PetRequest("L","Negro","Perro",5);

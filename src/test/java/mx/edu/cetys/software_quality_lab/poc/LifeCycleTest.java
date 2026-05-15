@@ -22,14 +22,14 @@ public class LifeCycleTest {
 
     @DisplayName("Test 1")
     @Test
-    void testLifeCycle_1() {
+    void testLifeCycle1() {
         LOGGER.info("\nThis is test: \ttestLifeCycle_1");
 
     }
 
     @DisplayName("Test 2")
     @Test
-    void testLifeCycle_2() {
+    void testLifeCycle2() {
         LOGGER.info("\nThis is test: \ttestLifeCycle_2");
     }
 

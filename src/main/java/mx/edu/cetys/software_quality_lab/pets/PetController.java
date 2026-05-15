@@ -46,7 +46,7 @@ public class PetController {
     // response generic wrapper to include standarized info in all our APIs
     public record  PetWrapper(PetResponse pet){}
 
-    @GetMapping("/help")
+    @GetMapping("/pets/help")
     ApiResponse<PetWrapper> help(){
         return new ApiResponse<>("This is the help API", null, null);
     }

@@ -23,7 +23,7 @@ class EmailValidatorServiceTest {
     }
 
     @Test
-    void rule0_Empty(){
+    void rule0Empty(){
 
         var isValid = emailValidatorService.isValid("");
 
@@ -31,7 +31,7 @@ class EmailValidatorServiceTest {
     }
 
     @Test
-    void rule0_Null(){
+    void rule0Null(){
 
         var isValid = emailValidatorService.isValid(null);
 
@@ -39,7 +39,7 @@ class EmailValidatorServiceTest {
     }
 
     @Test
-    void rule1_shouldReturnFalse_WhenContainsInvalidCharacters() {
+    void rule1ShouldReturnFalseWhenContainsInvalidCharacters() {
         //Arrange
 
         // Act: contains '!' which is not in the allowed list
@@ -49,7 +49,7 @@ class EmailValidatorServiceTest {
     }
 
     @Test
-    void rule2_shouldReturnTrue_WhenUserHasSpecialChars() {
+    void rule2ShouldReturnTrueWhenUserHasSpecialChars() {
 
         // Act
         var isValid = emailValidatorService.isValid("aron+coppel4#gm4l.com");
@@ -58,7 +58,7 @@ class EmailValidatorServiceTest {
     }
 
     @Test
-    void rule3_shouldReturnFalse_WhenSeparatorIsNotHashtag() {
+    void rule3ShouldReturnFalseWhenSeparatorIsNotHashtag() {
 
         // Act: Using standard '@' instead of '#'
         var isValid = emailValidatorService.isValid("aron4@gm4l.com");
@@ -67,7 +67,7 @@ class EmailValidatorServiceTest {
     }
 
     @Test
-    void rule3_shouldReturnFalse_WhenThereIsNoSeparator() {
+    void rule3ShouldReturnFalseWhenThereIsNoSeparator() {
 
         var isValid = emailValidatorService.isValid("aron4gm4l.cm");
 
@@ -75,7 +75,7 @@ class EmailValidatorServiceTest {
     }
 
     @Test
-    void rule3_EmptyFirstPart(){
+    void rule3EmptyFirstPart(){
 
         var isValid = emailValidatorService.isValid("#gm4l.cm");
 
@@ -83,7 +83,7 @@ class EmailValidatorServiceTest {
     }
 
     @Test
-    void rule3_EmptySecondPart(){
+    void rule3EmptySecondPart(){
 
         var isValid = emailValidatorService.isValid("hola#");
 
@@ -92,7 +92,7 @@ class EmailValidatorServiceTest {
     }
 
     @Test
-    void rule3_EmptyThirdPart(){
+    void rule3EmptyThirdPart(){
 
         var isValid = emailValidatorService.isValid("hola#g4m#");
 
@@ -101,7 +101,7 @@ class EmailValidatorServiceTest {
 
 
     @Test
-    void rule4_shouldReturnFalse_WhenDiphthongIsPresent() {
+    void rule4ShouldReturnFalseWhenDiphthongIsPresent() {
 
         // Act: 'io' is a diphthong
         var isValid = emailValidatorService.isValid("stud4nt#studio.com");
@@ -110,7 +110,7 @@ class EmailValidatorServiceTest {
     }
 
     @Test
-    void rule5_shouldReturnFalse_WhenDomainSuffixIsTooLong() {
+    void rule5ShouldReturnFalseWhenDomainSuffixIsTooLong() {
 
         // Act: '.online' is 6 characters
         var isValid = emailValidatorService.isValid("user4#gm4l.online");
@@ -119,7 +119,7 @@ class EmailValidatorServiceTest {
     }
 
     @Test
-    void rule5_shouldReturnFalse_WhenNoDotIsPresent() {
+    void rule5ShouldReturnFalseWhenNoDotIsPresent() {
 
         // Act: No hay punto '.'
         var isValid = emailValidatorService.isValid("user4#gmailcom");
@@ -128,7 +128,7 @@ class EmailValidatorServiceTest {
     }
 
     @Test
-    void rule6_shouldReturnFalse_WhenDomainSuffixIsNull() {
+    void rule6ShouldReturnFalseWhenDomainSuffixIsNull() {
 
         var isValid = emailValidatorService.isValid("user4#gml.");
 
@@ -136,7 +136,7 @@ class EmailValidatorServiceTest {
     }
 
     @Test
-    void rule6_shouldReturnFalse_WhenEmailExceedsMaxLength() {
+    void rule6ShouldReturnFalseWhenEmailExceedsMaxLength() {
 
         // Act
         var isValid = emailValidatorService.isValid("qwertyupilokjhgfdsazxmcnvbhfrujgtqmfertgfdvbhy#4gml.cm");
@@ -145,7 +145,7 @@ class EmailValidatorServiceTest {
     }
 
     @Test
-    void rule7_shouldReturnFalse_WhenNoFourIsPresent() {
+    void rule7ShouldReturnFalseWhenNoFourIsPresent() {
 
         // Act
         var isValid = emailValidatorService.isValid("aron#gm.com");
@@ -155,7 +155,7 @@ class EmailValidatorServiceTest {
 
 
     @Test
-    void validEmail_shouldReturnTrue_WhenAllRulesMet() {
+    void validEmailShouldReturnTrueWhenAllRulesMet() {
 
         // Act: Meets all rules: # separator, has a 4, no diphthongs, length fine
         var isValid = emailValidatorService.isValid("aron#gm4l.com");

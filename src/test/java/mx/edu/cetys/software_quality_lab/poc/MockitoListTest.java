@@ -1,18 +1,12 @@
 package mx.edu.cetys.software_quality_lab.poc;
 
 import mx.edu.cetys.software_quality_lab.validators.EmailValidatorService;
-import org.junit.jupiter.api.BeforeAll;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
-import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
-import java.util.ListIterator;
 
 import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.ArgumentMatchers.anyString;
@@ -34,7 +28,7 @@ public class MockitoListTest {
 //    }
 
     @Test
-    void shouldReturn_CustomSizeWhenMocked(){
+    void shouldReturnCustomSizeWhenMocked(){
         //Arrange : is already done for my mocklist
 
         //Define mocks behavior
@@ -60,7 +54,7 @@ public class MockitoListTest {
     }
 
     @Test
-    void shouldMock_LiatGetWithParameters(){
+    void shouldMockLiatGetWithParameters(){
         // define mock behavior
         when(mockList.get(0))
                 .thenReturn("Hello")
@@ -76,7 +70,7 @@ public class MockitoListTest {
     }
 
     @Test
-    void mock_emailValidatorWithArgumentMatchers(){
+    void mockEmailValidatorWithArgumentMatchers(){
         // define mock behavior
         when(emailValidatorServiceMock.isValid(anyString())).
                 thenReturn(true);
